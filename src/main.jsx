@@ -1,27 +1,69 @@
 import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
+import { supabase } from "./supabase";
 import "./style.css";
 
 function App() {
-  const [text, setText] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, setUser] = useState(null);
+
+  async function signUp() {
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+    });
+
+    if (error) {
+      alert(error.message);
+    } else {
+      alert("注册成功");
+      setUser(data.user);
+    }
+  }
+
+  async function signIn() {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      alert(error.message);
+    } else {
+      alert("登录成功");
+      setUser(data.user);
+    }
+  }
 
   return (
     <div className="app">
       <h1>一起分享</h1>
 
-      <div className="card">
-        <input
-          placeholder="说点什么..."
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
+      {!user ? (
+        <div className="card">
+          <input
+            placeholder="邮箱"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-        <button>
-          发布
-        </button>
-      </div>
+          <input
+            placeholder="密码"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-      <p>欢迎来到一起分享社区</p >
+          <button onClick={signUp}>注册</button>
+          <button onClick={signIn}>登录</button>
+        </div>
+      ) : (
+        <div>
+          <h2>欢迎回来</h2>
+          <p>{user.email}</p >
+        </div>
+      )}
     </div>
   );
 }
