@@ -8,6 +8,7 @@ function App() {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
   const [username, setUsername] = useState("");
+  const [content, setContent] = useState("");
   async function signUp() {
     const { data, error } = await supabase.auth.signUp({
       email,
