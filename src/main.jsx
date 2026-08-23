@@ -64,13 +64,14 @@ function App() {
   <p>邮箱：{user.email}</p >
 
   <input
-    placeholder="输入昵称"
-    id="username"
-  />
+  placeholder="输入昵称"
+  value={username}
+  onChange={(e) => setUsername(e.target.value)}
+/>
 
-  <button>
-    保存昵称
-  </button>
+  <button onClick={saveUsername}>
+  保存昵称
+</button>
 </div> 
       )}
     </div>
