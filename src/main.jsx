@@ -38,6 +38,24 @@ function App() {
   }
 
   async function saveUsername() {
+  ...
+}
+
+async function createPost() {
+  const { error } = await supabase
+    .from("posts")
+    .insert({
+      user_id: user.id,
+      content: content
+    });
+
+  if (error) {
+    alert(error.message);
+  } else {
+    alert("发布成功");
+    setContent("");
+  }
+}
   const { error } = await supabase
     .from("profiles")
     .upsert({
