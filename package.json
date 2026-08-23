@@ -1,4 +1,11 @@
 {
-  "scripts":{"build":"vite build"},
-  "dependencies":{"vite":"latest","react":"latest","react-dom":"latest"}
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "@supabase/supabase-js": "latest"
+  }
 }
