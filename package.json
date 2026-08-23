@@ -1,7 +1,0 @@
-{
-  "name":"together-share",
-  "private":true,
-  "scripts":{"dev":"vite","build":"vite build","preview":"vite preview"},
-  "dependencies":{"@supabase/supabase-js":"^2.0.0","@vitejs/plugin-react":"latest","vite":"latest","react":"latest","react-dom":"latest"},
-  "devDependencies":{}
-}
