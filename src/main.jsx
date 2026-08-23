@@ -97,6 +97,16 @@ return (
   <h2>欢迎回来</h2>
   <p>邮箱：{user.email}</p >
 
+<textarea
+  placeholder="分享点什么..."
+  value={content}
+  onChange={(e) => setContent(e.target.value)}
+/>
+
+<button onClick={createPost}>
+  发布
+</button>
+
   <input
   placeholder="输入昵称"
   value={username}
