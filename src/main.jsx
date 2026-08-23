@@ -59,10 +59,19 @@ function App() {
           <button onClick={signIn}>登录</button>
         </div>
       ) : (
-        <div>
-          <h2>欢迎回来</h2>
-          <p>{user.email}</p >
-        </div>
+       <div>
+  <h2>欢迎回来</h2>
+  <p>邮箱：{user.email}</p >
+
+  <input
+    placeholder="输入昵称"
+    id="username"
+  />
+
+  <button>
+    保存昵称
+  </button>
+</div> 
       )}
     </div>
   );
