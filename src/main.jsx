@@ -67,6 +67,10 @@ async function createPost() {
     alert(error.message);
   } else {
     alert("昵称保存成功");
+setUser({
+  ...user,
+  username: username
+});
   }
 }
 
