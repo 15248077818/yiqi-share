@@ -36,7 +36,22 @@ function App() {
     }
   }
 
-  return (
+  async function saveUsername() {
+  const { error } = await supabase
+    .from("profiles")
+    .upsert({
+      id: user.id,
+      username: username
+    });
+
+  if (error) {
+    alert(error.message);
+  } else {
+    alert("昵称保存成功");
+  }
+}
+
+return (
     <div className="app">
       <h1>一起分享</h1>
 
